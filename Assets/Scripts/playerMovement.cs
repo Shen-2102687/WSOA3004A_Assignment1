@@ -13,7 +13,7 @@ public class playerMovement : MonoBehaviour
 
     public static bool onGround; 
     public Transform groundPoint;
-    public float groundRange = 0.3f;
+    public float groundRange = 0.1f;
     public LayerMask groundLayer;
 
     //public GameObject enemyObject;
@@ -25,11 +25,15 @@ public class playerMovement : MonoBehaviour
     public LayerMask iceLayer;
     Vector2 move;
 
+    public static bool onStuck;
+    public LayerMask stuckLayer;
+
+    int numPresses = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        numPresses = 0;
     }
 
     // Update is called once per frame
@@ -47,17 +51,46 @@ public class playerMovement : MonoBehaviour
         vertMovement = Input.GetAxisRaw("Vertical");
         //playerAnimator.SetBool("onGround", onGround);
 
-        if ((onGround || onIce) && /*Input.GetKeyDown(KeyCode.Y)*/ /*Input.GetAxisRaw("Vertical")>=0.5f*/ /*vertMovement >= 0.5f*/ Input.GetKeyDown(KeyCode.Space))
+        if ((onGround || onIce) &&  /*Input.GetKeyDown(KeyCode.Y)*/ /*Input.GetAxisRaw("Vertical")>=0.5f*/ /*vertMovement >= 0.5f*/ Input.GetKeyDown(KeyCode.Space))
         {
             playerRigidBody.velocity = new Vector2(0, 0);//new code --> i think this works for jumping with up on joystick, prevents from impulse force being built up
             playerRigidBody.AddForce(new Vector2(0, forceJump), ForceMode2D.Impulse);
             Debug.Log("jumped");
             //playerAnimator.SetBool("onGround", onGround);
+            
         }
 
         onIce = Physics2D.OverlapCircle(groundPoint.position, groundRange, iceLayer);
 
         move = new Vector2(Input.GetAxisRaw("Horizontal"), 0);
+
+        onStuck = Physics2D.OverlapCircle(groundPoint.position, groundRange, stuckLayer);
+
+        if (onStuck)
+        {
+            moveSpeed = 0f;
+        }
+        else
+        {
+            moveSpeed = 10f;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) && onStuck)
+        {
+            numPresses++;
+
+            if (numPresses >= 3)
+            {
+                playerRigidBody.velocity = new Vector2(0, 0);//new code --> i think this works for jumping with up on joystick, prevents from impulse force being built up
+                playerRigidBody.AddForce(new Vector2(0, forceJump), ForceMode2D.Impulse);
+                Debug.Log("jumped");
+                //playerAnimator.SetBool("onGround", onGround);
+
+                numPresses = 0;
+            }
+
+            numPresses = Mathf.Clamp(numPresses, 0, 3);
+        }
     }
 
     private void FixedUpdate()
