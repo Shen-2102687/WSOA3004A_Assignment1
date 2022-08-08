@@ -2,24 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class platformMovement : MonoBehaviour
+public class deleteSpawnedPlatforms : MonoBehaviour
 {
     // Start is called before the first frame update
-
-    public float speed = 2f;
-
     void Start()
     {
         
     }
 
     // Update is called once per frame
-    private void Update()
+    void Update()
     {
-        transform.Translate(Vector2.down * speed * Time.deltaTime);
+        
     }
-
-
 
     private void OnTriggerEnter2D(Collider2D obj)
     {
@@ -28,5 +23,4 @@ public class platformMovement : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
 }
