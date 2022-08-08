@@ -298,6 +298,9 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  iceLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &579617152
 GameObject:
   m_ObjectHideFlags: 0
@@ -504,7 +507,7 @@ GameObject:
   - component: {fileID: 1344292400}
   - component: {fileID: 1344292399}
   - component: {fileID: 1344292398}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -21,6 +21,10 @@ public class playerMovement : MonoBehaviour
 
     public static float vertMovement;
 
+    public static bool onIce;
+    public LayerMask iceLayer;
+    Vector2 move;
+
 
     // Start is called before the first frame update
     void Start()
@@ -43,21 +47,38 @@ public class playerMovement : MonoBehaviour
         vertMovement = Input.GetAxisRaw("Vertical");
         //playerAnimator.SetBool("onGround", onGround);
 
-        if (onGround && /*Input.GetKeyDown(KeyCode.Y)*/ /*Input.GetAxisRaw("Vertical")>=0.5f*/ /*vertMovement >= 0.5f*/ Input.GetKeyDown(KeyCode.Space))
+        if ((onGround || onIce) && /*Input.GetKeyDown(KeyCode.Y)*/ /*Input.GetAxisRaw("Vertical")>=0.5f*/ /*vertMovement >= 0.5f*/ Input.GetKeyDown(KeyCode.Space))
         {
             playerRigidBody.velocity = new Vector2(0, 0);//new code --> i think this works for jumping with up on joystick, prevents from impulse force being built up
             playerRigidBody.AddForce(new Vector2(0, forceJump), ForceMode2D.Impulse);
             Debug.Log("jumped");
             //playerAnimator.SetBool("onGround", onGround);
         }
+
+        onIce = Physics2D.OverlapCircle(groundPoint.position, groundRange, iceLayer);
+
+        move = new Vector2(Input.GetAxisRaw("Horizontal"), 0);
     }
 
     private void FixedUpdate()
     {
         moveHori = Input.GetAxisRaw("Horizontal");                                                   //movement using horizontal axis and rigidbody of gameobject
-        playerRigidBody.velocity = new Vector2(moveHori * moveSpeed, playerRigidBody.velocity.y);
+        //playerRigidBody.velocity = new Vector2(moveHori * moveSpeed, playerRigidBody.velocity.y);
+
+        //playerRigidBody.AddForce(playerForce, ForceMode2D.Force);
 
         //playerAnimator.SetFloat("Speed", Mathf.Abs(moveHori));                                      //setting the speed parameter for when the movement animation needs to be called
+
+        
+
+        if (onIce)
+        {
+            playerRigidBody.AddForce(move * moveSpeed, ForceMode2D.Force);
+        }
+        else
+        {
+            playerRigidBody.velocity = new Vector2(moveHori * moveSpeed, playerRigidBody.velocity.y);
+        }
     }
 
 
