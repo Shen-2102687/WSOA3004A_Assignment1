@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1880891765383820692}
   - component: {fileID: 6070134787501162091}
   - component: {fileID: 90162543948328211}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d20ca1d637e9c04b8deb8ca7fa08813, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 1
 --- !u!114 &90162543948328211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,3 +128,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caaa9c344a8a0184094c365865532512, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showTransformY: 0

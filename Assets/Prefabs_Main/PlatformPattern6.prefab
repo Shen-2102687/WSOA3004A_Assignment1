@@ -9,9 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3371520829481463440}
+  - component: {fileID: 5572196352886783219}
   m_Layer: 0
   m_Name: PlatformPattern6
-  m_TagString: Untagged
+  m_TagString: platforms
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33,6 +34,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5572196352886783219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3371520829481463443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e965dacf4b81e9488df06fd906c6149, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  platformObjects:
+  - {fileID: 0}
+  - {fileID: 3805622279139646831}
+  - {fileID: 3805622278761812430}
+  slippery: {fileID: 6200000, guid: a5e624e44eb4aab4494f1b812a7c24a6, type: 2}
+  none: {fileID: 0}
 --- !u!1001 &3371520828671174900
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -95,6 +114,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1880891765383820694, guid: e4574382d9acdd9448c5fb778e702449, type: 3}
   m_PrefabInstance: {fileID: 3371520828671174900}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &3805622279139646831 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1880891765383820699, guid: e4574382d9acdd9448c5fb778e702449, type: 3}
+  m_PrefabInstance: {fileID: 3371520828671174900}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3371520829350339669
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -155,5 +179,10 @@ PrefabInstance:
 --- !u!4 &3805622278761812419 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1880891765383820694, guid: e4574382d9acdd9448c5fb778e702449, type: 3}
+  m_PrefabInstance: {fileID: 3371520829350339669}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3805622278761812430 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1880891765383820699, guid: e4574382d9acdd9448c5fb778e702449, type: 3}
   m_PrefabInstance: {fileID: 3371520829350339669}
   m_PrefabAsset: {fileID: 0}
