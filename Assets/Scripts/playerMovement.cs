@@ -72,7 +72,7 @@ public class playerMovement : MonoBehaviour
         }
         else
         {
-            moveSpeed = 10f;
+            moveSpeed = /*10f*/ 13.45f;
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && onStuck)

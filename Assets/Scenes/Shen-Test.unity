@@ -292,7 +292,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerRigidBody: {fileID: 218765097}
-  moveSpeed: 10
+  moveSpeed: 13.45
   groundPoint: {fileID: 170571421}
   groundRange: 0.3
   groundLayer:
