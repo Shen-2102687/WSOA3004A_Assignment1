@@ -12,7 +12,7 @@ public class EnvironmentManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("changeGameEnvironment", 3f, 10f);
+        InvokeRepeating("changeGameEnvironment", 7f, 10f);
     }
 
     // Update is called once per frame
