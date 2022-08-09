@@ -53,6 +53,7 @@ MonoBehaviour:
   - {fileID: 6390926242495695348}
   slippery: {fileID: 6200000, guid: a5e624e44eb4aab4494f1b812a7c24a6, type: 2}
   none: {fileID: 0}
+  bounce: {fileID: 6200000, guid: 9b4a9ebe98e502c4f885f63a4ed7c367, type: 2}
 --- !u!1001 &4804044025124690112
 PrefabInstance:
   m_ObjectHideFlags: 0

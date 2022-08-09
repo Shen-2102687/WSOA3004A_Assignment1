@@ -8,6 +8,7 @@ public class changeEnvironment : MonoBehaviour
 
     public PhysicsMaterial2D slippery;
     public PhysicsMaterial2D none;
+    public PhysicsMaterial2D bounce;
 
     // Start is called before the first frame update
     void Start()
@@ -221,7 +222,35 @@ public class changeEnvironment : MonoBehaviour
             }
             Debug.Log("Change-Stuck");
         }
-     }
+
+        if (randLayer == 3)
+        {
+            if (platformObjects[randPlatform1] == null)
+            {
+                return;
+            }
+            else
+            {
+                platformObjects[randPlatform1].layer = layerChangeGround;
+                platformObjects[randPlatform1].GetComponent<SpriteRenderer>().color = Color.red;
+                platformObjects[randPlatform1].GetComponent<CapsuleCollider2D>().sharedMaterial = bounce;
+                //Debug.Log("Changed platform1 Layer to stuck");
+            }
+
+            if (platformObjects[randPlatform2] == null)
+            {
+                return;
+            }
+            else
+            {
+                platformObjects[randPlatform2].layer = layerChangeGround;
+                platformObjects[randPlatform2].GetComponent<SpriteRenderer>().color = Color.red;
+                platformObjects[randPlatform2].GetComponent<CapsuleCollider2D>().sharedMaterial = bounce;
+                //Debug.Log("Changed platform2 Layer to stuck");
+            }
+            Debug.Log("Change-Fire");
+        }
+    }
 
     public void InitialisePlatforms()
     {

@@ -23,7 +23,7 @@ public class EnvironmentManager : MonoBehaviour
 
     void changeGameEnvironment()
     {
-        randLayer = Random.Range(0, 3);
+        randLayer = Random.Range(0, 4);
 
 
         //FindObjectOfType<changeEnvironment>().changePlatformEnvironment(randLayer);
